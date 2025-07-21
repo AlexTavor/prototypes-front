@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://prototypes-backend-741585942162.europe-west1.run.app/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/oauth2/*"
+  to = "https://prototypes-backend-741585942162.europe-west1.run.app/oauth2/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/login/oauth2/code/*"
+  to = "https://prototypes-backend-741585942162.europe-west1.run.app/login/oauth2/code/:splat"
+  status = 200
+  force = true
