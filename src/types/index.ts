@@ -13,3 +13,19 @@ export interface AboutData {
     imageAlt: string;
     content: string;
 }
+
+export interface Comment {
+    id: number;
+    content: string;
+    authorName: string;
+    authorAvatarUrl: string;
+    userId: string;
+    createdAt: string;
+}
+
+export interface User {
+    sub: string;
+    name: string;
+    email: string;
+    picture: string;
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getUser } from "../services/authService";
 
-const ADMIN_EMAIL = "alex.tavor@gmail.com";
+const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
 
 export function useIsAdmin() {
     const [isAdmin, setIsAdmin] = useState(false);

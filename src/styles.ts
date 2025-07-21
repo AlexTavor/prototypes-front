@@ -159,10 +159,15 @@ export const PrototypeCardContainer = styled.div`
     }
 `;
 
+export const PrototypeImageContainer = styled.div`
+    height: 200px;
+    background-color: #000;
+`;
+
 export const PrototypeImage = styled.img`
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 100%;
+    object-fit: contain;
     display: block;
 `;
 
