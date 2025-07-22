@@ -184,7 +184,7 @@ export function EditPrototypeModal({
     };
 
     return (
-        <ModalOverlay>
+        <ModalOverlay role="dialog">
             <ModalContent>
                 <h2>
                     {prototypeToEdit ? "Edit Prototype" : "Add New Prototype"}

@@ -53,7 +53,6 @@ const AddCommentButton = styled.button`
     }
 `;
 
-// Re-using styles from CommentCard for the editor
 const CommentTextarea = styled.textarea`
     width: 100%;
     padding: 0.75rem;

@@ -52,10 +52,6 @@ export function PrototypesProvider({ children }: { children: ReactNode }) {
 
     useEffect(() => {
         refreshPrototypes();
-        window.addEventListener("focus", refreshPrototypes);
-        return () => {
-            window.removeEventListener("focus", refreshPrototypes);
-        };
     }, [refreshPrototypes]);
 
     const addPrototype = async (prototype: Omit<Prototype, "id">) => {
