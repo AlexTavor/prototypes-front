@@ -6,7 +6,8 @@ export function Header() {
         <HeaderContainer>
             <Nav>
                 <a href="#about">About</a> |{" "}
-                <a href="#prototypes">Prototypes</a> | <AuthButton />
+                <a href="#prototypes">Prototypes</a> |
+                <AuthButton />
             </Nav>
         </HeaderContainer>
     );

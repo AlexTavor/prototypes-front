@@ -13,6 +13,7 @@ export const theme = {
         textMain: "#cbd5e1",
         textMuted: "#94a3b8",
         border: "#334155",
+        disabled: "#64748b",
     },
 };
 

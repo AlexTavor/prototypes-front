@@ -21,6 +21,7 @@ const LoginButton = styled.a`
 
     &:hover {
         background-color: ${({ theme }) => theme.colors.primaryHover};
+        color: ${({ theme }) => theme.colors.textMain} !important;
     }
 `;
 

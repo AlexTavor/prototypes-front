@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useComments } from "../context/CommentsContext";
 import { useUser } from "../hooks/useUser";
 import { CommentCard } from "./CommentCard";
+import { getLoginUrl } from "../services/authService";
 
 // --- Styled Components ---
 
@@ -27,7 +28,6 @@ const CommentsContainer = styled.div`
 
 const StatusMessage = styled.div`
     color: ${({ theme }) => theme.colors.textMuted};
-    padding: 2rem 0;
     text-align: center;
 `;
 
@@ -144,40 +144,45 @@ export function CommentsList() {
         <CommentsSectionContainer>
             <SectionTitle>Comments</SectionTitle>
             {renderContent()}
-            {user && (
-                <AddCommentContainer>
-                    {isAdding ? (
-                        <>
-                            <CommentTextarea
-                                placeholder="Write a comment..."
-                                value={newCommentContent}
-                                onChange={(e) =>
-                                    setNewCommentContent(e.target.value)
-                                }
-                                autoFocus
-                            />
-                            <ActionsContainer>
-                                <ActionButton
-                                    className="secondary"
-                                    onClick={handleAbort}
-                                >
-                                    Abort
-                                </ActionButton>
-                                <ActionButton
-                                    className="primary"
-                                    onClick={handleSaveNewComment}
-                                >
-                                    Save
-                                </ActionButton>
-                            </ActionsContainer>
-                        </>
-                    ) : (
-                        <AddCommentButton onClick={() => setIsAdding(true)}>
-                            + Add Comment
-                        </AddCommentButton>
-                    )}
-                </AddCommentContainer>
-            )}
+            <AddCommentContainer>
+                {isAdding ? (
+                    <>
+                        <CommentTextarea
+                            placeholder="Write a comment..."
+                            value={newCommentContent}
+                            onChange={(e) =>
+                                setNewCommentContent(e.target.value)
+                            }
+                            autoFocus
+                        />
+                        <ActionsContainer>
+                            <ActionButton
+                                className="secondary"
+                                onClick={handleAbort}
+                            >
+                                Abort
+                            </ActionButton>
+                            <ActionButton
+                                className="primary"
+                                onClick={handleSaveNewComment}
+                            >
+                                Save
+                            </ActionButton>
+                        </ActionsContainer>
+                    </>
+                ) : (
+                    <AddCommentButton
+                        role={user ? "button" : "link"}
+                        onClick={() =>
+                            user
+                                ? setIsAdding(true)
+                                : (window.location.href = getLoginUrl())
+                        }
+                    >
+                        {user ? "+ Add Comment" : "Login to comment"}
+                    </AddCommentButton>
+                )}
+            </AddCommentContainer>
         </CommentsSectionContainer>
     );
 }
